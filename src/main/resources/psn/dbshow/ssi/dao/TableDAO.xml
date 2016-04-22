@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="psn.dbshow.ssi.dao.TableDAO">
+
+    <resultMap id="tableInfo" type="psn.dbshow.ssi.povo.vo.QueryTableVO">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="active" column="active"/>
+    </resultMap>
+
+    <insert id="insertOne" parameterType="psn.dbshow.ssi.povo.po.QueryTable" useGeneratedKeys="true" keyColumn="id">
+        INSERT INTO sys_query_tables(`name`, `active`)
+        VALUES (#{name}, #{active})
+    </insert>
+
+    <select id="selectQueryTables" resultMap="tableInfo">
+        SELECT `id`, `name`, `active`
+        FROM sys_query_tables
+        ORDER BY create_time DESC, id DESC
+        <if test="pager != null">
+            LIMIT #{pager.startNumber}, #{pager.endNumber}
+        </if>
+    </select>
+
+    <select id="selectTables" resultType="String">
+        SELECT TABLE_NAME
+        FROM INFORMATION_SCHEMA.TABLES
+        WHERE TABLE_SCHEMA = 'dbshow'
+        and TABLE_NAME NOT LIKE 'sys%';
+    </select>
+
+    <update id="removeOne">
+        UPDATE sys_query_tables
+        SET
+        active = 0
+        WHERE
+        `name` = #{tableName} AND active = 1
+    </update>
+
+    <update id="active">
+        UPDATE sys_query_tables
+        SET active = 1
+        WHERE
+        id = #{id}
+    </update>
+
+    <select id="selectByName" resultType="psn.dbshow.ssi.povo.po.QueryTable">
+        SELECT id, `name`, active, create_time
+        FROM sys_query_tables
+        WHERE
+        `name` = #{tableName}
+    </select>
+
+</mapper>

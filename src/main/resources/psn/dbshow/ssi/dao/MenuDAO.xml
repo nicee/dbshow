@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="psn.dbshow.ssi.dao.MenuDAO">
+
+    <resultMap id="menu" type="psn.dbshow.ssi.povo.vo.MenuVO">
+        <id property="id" column="id"/>
+        <result property="pId" column="parent_id"/>
+        <result property="name" column="name"/>
+        <result property="url" column="url"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="psn.dbshow.ssi.povo.po.Menu" useGeneratedKeys="true" keyColumn="id">
+        INSERT  INTO sys_menu(`name`, `parent_id`, `url`, `sort_num`)
+        VALUES (#{name}, #{parentId}, #{url}, #{sortNum})
+    </insert>
+
+    <select id="exist" resultType="java.lang.Boolean">
+        SELECT
+        COUNT(id) > 0
+        FROM sys_menu
+        WHERE
+        `name` = #{name}
+    </select>
+
+    <select id="selectMenus" resultMap="menu">
+        SELECT id, parent_id, `name`, `url`
+        FROM sys_menu
+        <if test="parentId != null">
+            WHERE parent_id = #{parentId}
+        </if>
+    </select>
+
+    <delete id="deleteChild">
+        DELETE FROM sys_menu
+        WHERE
+        parent_id = #{pId} AND `name` = #{name}
+    </delete>
+
+</mapper>

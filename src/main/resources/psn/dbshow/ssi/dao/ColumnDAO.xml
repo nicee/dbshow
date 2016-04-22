@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="psn.dbshow.ssi.dao.ColumnDAO">
+
+    <resultMap id="columnInfo" type="psn.dbshow.ssi.povo.vo.QueryColumnVO">
+        <id property="id" column="id"/>
+        <result property="columnName" column="column_name"/>
+        <result property="labelName" column="label_name"/>
+        <result property="active" column="active"/>
+    </resultMap>
+
+    <select id="selectQueryColumns" resultMap="columnInfo">
+        SELECT `id`, `column_name`, `label_name`, `active`
+        FROM sys_query_options
+        WHERE
+        table_name = #{tableName}
+    </select>
+
+    <select id="selectColumns" resultType="String">
+        SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_NAME = #{tableName}
+    </select>
+
+    <insert id="addQuery" parameterType="psn.dbshow.ssi.povo.po.QueryColumn" useGeneratedKeys="true" keyColumn="id">
+      INSERT INTO  sys_query_options(`table_name`, `column_name`, `label_name`)
+      VALUES (#{tableName}, #{columnName}, #{labelName})
+    </insert>
+
+    <update id="updateQuery" parameterType="psn.dbshow.ssi.povo.po.QueryColumn">
+        UPDATE sys_query_options
+        SET
+        label_name = #{labelName},
+        active = 1
+        WHERE
+        `table_name` = #{tableName}
+        AND `column_name` = #{columnName}
+    </update>
+
+    <update id="batchNotActive">
+        UPDATE sys_query_options
+        SET
+        active = 0
+        WHERE
+        `table_name` = #{tableName}
+        AND
+        `column_name` IN
+        <foreach collection="colNames" item="col" open="(" close=")" separator=",">
+            #{col}
+        </foreach>
+    </update>
+
+</mapper>

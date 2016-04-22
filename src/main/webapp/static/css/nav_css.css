@@ -1,0 +1,96 @@
+@charset "gb2312";
+/*导航*/
+*{ margin:0px; padding:0px; color:#000;}
+a:link{ border:0px; }
+
+/*#0f4368*/
+#top{ background: #69c2ec;
+	background:linear-gradient(0deg, #69c2ec 0%, #8bd9ff 100%) repeat;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 2px #93aecb;
+    height: 50px;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    }
+/*width: 1160px;*/
+#top_content{ width: 100%;height:33px;margin:0px auto;padding-top:5px; z-index:1000; position:relative; top:0; left:0;}
+
+#link_3 a{ }
+.menu0{}
+.menu0 a{color:#fff;height:32px;line-height:28px;float:left;position:relative; font-size:14px; text-decoration:none;}
+.top{background:#333;position:relative;z-index:2}
+.menu0 li{ width:56px; padding-left:12px; padding-right:12px;font-size:14px;float:left;position:relative; margin-right:20px;list-style:none; }
+.menu0 li a{ }
+.menu0 li:hover{background-color:#fff;border:1px solid #ccc;border-bottom:none; margin-right:18px; color:#000; font-weight:bold;}
+.menu0 li:hover a{text-decoration:none;  color:#000; }
+.menu0 li.no_sub:hover{}
+.menu0 ul{
+		width:250px;
+		background-color:#FFF;
+		border:1px solid #ccc;
+		border-top:none;
+		position:absolute;
+		left:-200px;
+		top:-999em;
+		z-index:9999;
+		display:none; padding-top:20px;
+		}
+
+.menu0 li:hover ul{top:31px;display:block; width:315px; padding-left:20px; }
+/*用户视图菜单*/
+#link_3:hover ul{ 
+		width:460px;
+		left:-45px;
+		z-index:1;
+		}
+		
+/*企业选址点击效果*/
+.text_family a{ }
+.qyxz{ display:block;width:100px;+width:95px; height:29px; line-height:29px; +line-height:26px; text-align:center; font-family:"Microsoft Yahei"; color:#FFF; font-size:14px; float:left; text-decoration:none; margin-right:15px;}
+/*.qyxz a:hover
+	{ background:#fff; color:#000;}*/
+
+/*鼠标经过变蓝色背景*/
+.index{ display:block;width:100px;+width:95px; height:29px; line-height:29px; +line-height:26px; text-align:center; font-family:"Microsoft Yahei"; color:#FFF; font-size:14px; float:left; text-decoration:none; margin-right:15px;}
+
+.qxst a{ background:url(../images/yhfx.gif) no-repeat; }
+.qxst a:hover{ background:url(../images/yhfx_hover.gif) no-repeat;}
+
+.app a{ background:url(../images/appmove.gif) no-repeat; }
+.app a:hover{ background:url(../images/appmovehover.gif) no-repeat;}
+
+.fusionid a{ background:url(../images/ID.gif) no-repeat; }
+.fusionid a:hover{ background:url(../images/IDhover.gif) no-repeat;}
+
+.buyphone a{ background:url(../images/gj.gif) no-repeat; }
+.buyphone a:hover{ background:url(../images/gjhover.gif) no-repeat;}
+
+.datadown a{ background:url(../images/sjdown.gif) no-repeat; }
+.datadown a:hover{ background:url(../images/sjdownhover.gif) no-repeat;}
+
+.oneshop a{ background:url(../images/1shop.gif) no-repeat; }
+.oneshop a:hover{ background:url(../images/1shophover.gif) no-repeat;}
+
+.cnxh a{ background:url(../images/cnxh_g.gif) no-repeat;}
+.cnxh a:hover{ background:url(../images/cnxh_b.gif) no-repeat;}
+
+.yhfq a{ background:url(../images/fenqfenx_g.gif) no-repeat;}
+.yhfq a:hover{ background:url(../images/yonghfqfenx_b.gif) no-repeat;}
+
+.wxyh a{ background:url(../images/weixinyhfx_g.gif) no-repeat;}
+.wxyh a:hover{ background:url(../images/weixin_b.gif) no-repeat;}
+
+
+.ybsj a{ background:url(../images/yanben_g.gif) no-repeat;}
+.ybsj a:hover{ background:url(../images/yangbensjdb_b.gif) no-repeat;}
+
+.gjc a{ background:url(../images/kingword_g.gif) no-repeat;}
+.gjc a:hover{ background:url(../images/kingword_b.gif) no-repeat;}
+
+.fqgl a{ background:url(../images/fenqungl_g.gif) no-repeat;}
+.fqgl a:hover{ background:url(../images/fenqungl_b.gif) no-repeat;}
+
+.menu0 li:hover ul li{font-size:12px;border:none;float:left; height:80px;width:100px; margin-right:25px; }
+.menu0 li:hover ul li a{color:#333;text-decoration:none; display:block;width:120px; height:60px; }
+.welcome{line-height: 40px;color: #F7F9FA;}

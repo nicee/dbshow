@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+    http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <configuration>
+        <trim-strings>true</trim-strings>
+    </configuration>
+
+    <mapping>
+        <class-a>psn.dbshow.ssi.povo.po.Menu</class-a>
+        <class-b>psn.dbshow.ssi.povo.vo.MenuVO</class-b>
+        <field>
+            <a>parentId</a>
+            <b>pId</b>
+        </field>
+    </mapping>
+
+</mappings>
